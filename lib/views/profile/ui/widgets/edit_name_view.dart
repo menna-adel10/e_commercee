@@ -1,8 +1,6 @@
-import 'package:e_commercee/core/app_colors.dart';
 import 'package:e_commercee/views/auth/ui/widgets/custom_elevated_btn.dart';
 import 'package:e_commercee/views/auth/ui/widgets/custom_text_field.dart';
 import 'package:flutter/material.dart';
-
 import '../../../../core/functions/build_appbar.dart';
 
 class EditNameView extends StatelessWidget {
@@ -22,12 +20,13 @@ class EditNameView extends StatelessWidget {
             SizedBox(
               height: 15,
             ),
-            CustomBtn(text: 'Update', onTap: (){},)
+            CustomBtn(text: 'Update', onTap: (){},),
           ],
         ),
       ),
     );
   }
-
-
 }
+
+
+

@@ -14,7 +14,10 @@ class CacheImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CachedNetworkImage(
+      fit: BoxFit.cover,
       imageUrl: image,
+      height: 250,
+      width: double.infinity,
       placeholder: (context, url) => SizedBox(height: 200,
         child: CustomCircleProgIndicator(),
       ),
