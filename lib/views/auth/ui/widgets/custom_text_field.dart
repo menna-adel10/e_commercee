@@ -7,17 +7,19 @@ class CustomTextField extends StatelessWidget {
     super.key,
     required this.labelText,
     this.suffixIcon,
-    this.isSecured = false, this.keyboardType,
+    this.isSecured = false, this.keyboardType,  this.controller,
   });
 
   final String labelText;
   final Widget? suffixIcon;
   final bool isSecured;
   final TextInputType? keyboardType;
+  final TextEditingController? controller;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      controller: controller,
       obscureText: isSecured,
       obscuringCharacter: "*",
       validator: (value) {

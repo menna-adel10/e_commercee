@@ -1,5 +1,7 @@
-import 'package:e_commercee/views/nav_bar/ui/main_home_view.dart';
+import 'package:e_commercee/views/auth/logic/auth_cubit.dart';
+import 'package:e_commercee/views/auth/ui/login_view.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 import 'core/app_colors.dart';
@@ -19,14 +21,17 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Our Market',
-      theme: ThemeData(
-        scaffoldBackgroundColor: AppColors.kScaffoldColor,
-        useMaterial3: true,
+    return BlocProvider(
+      create: (context)=> AuthenticationCubit(),
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Our Market',
+        theme: ThemeData(
+          scaffoldBackgroundColor: AppColors.kScaffoldColor,
+          useMaterial3: true,
+        ),
+        home: LoginView(),
       ),
-      home: MainHomeView(),
     );
   }
 }
