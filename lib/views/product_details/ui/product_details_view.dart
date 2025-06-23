@@ -1,5 +1,7 @@
 import 'package:e_commercee/core/components/cache_image.dart';
 import 'package:e_commercee/core/functions/build_appbar.dart';
+import 'package:e_commercee/views/auth/ui/widgets/custom_text_field.dart';
+import 'package:e_commercee/views/product_details/ui/widgets/User_comment.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
@@ -72,11 +74,46 @@ class ProductDetailsView extends StatelessWidget {
                 print(rating);
               },
             ),
+                SizedBox(height: 40,),
+                CustomTextField(labelText: 'Type your feedback',
+                suffixIcon: IconButton(onPressed: (){}, icon: Icon(Icons.send)),
+                ),
+
+                SizedBox(height: 15,),
+                Row(
+                  children: [
+                    Text('Comments',
+                    style: TextStyle(
+                      fontSize: 18,
+                    ),),
+                  ],
+                ),
+                SizedBox(height: 20,),
+
+                CommentListView(),
+
+
+
+                
               ],
             ),
           ),
         ],
       ),
     );
+  }
+}
+
+class CommentListView extends StatelessWidget {
+  const CommentListView({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.separated(
+        shrinkWrap: true,
+        physics: NeverScrollableScrollPhysics(),
+        itemBuilder: (context, index)=> UserComment(), separatorBuilder: (context,index)=>Divider(), itemCount: 10);
   }
 }
